@@ -1,0 +1,230 @@
+body
+{
+	background-color: #c0fdff;
+	font-family: Arial;
+}
+h1
+{
+	color: #ff0a54;
+	text-align: center;
+}
+#mensaje{
+  position:fixed;
+  right:30%;
+  border-radius:80px;
+  width:170px;
+  height:65px;
+  background:#a9def9;  
+  padding:20px 0 0 50px;
+  font-family:sans-serif;
+  font-weight:bold;
+  font-size:20px;
+  z-index:2;
+}
+#mensaje:after{
+  content:" ";
+  position:absolute;
+  width:40px;
+  height:60px;
+  top:50px;
+  left:50px;
+  border-radius:20px;
+  box-shadow: inset 0px 0px #a9def9, inset -16px 0px 1px 2px #a9def9;
+  z-index:1;
+}
+#intro p{
+  width:400px;
+  margin:20px auto;
+  font-family:sans-serif;
+}
+.hidden{
+  display:none;
+}
+.mostrar{
+  display:block;
+}
+#botonJugar{
+  width:200px;
+  height: 70px;
+  margin:0 auto;
+  display:block;
+  font-size:30px;
+  background-color:#99c1de;
+  color:#27187e;
+  border:0;
+  border-radius:20px;
+  cursor:pointer;
+}
+#botonVolverAJugar{
+  width:200px;
+  height: 70px;
+  margin:0 auto;
+  display:block;
+  font-size:20px;
+  background-color:#e2dfe2;
+  color:#18777e;
+  border:0;
+  border-radius:20px;
+  cursor:pointer;
+}
+div.petalo
+{
+	background-color:#fcf807;
+    border: 2px solid black;
+	border-radius: 10px;
+	width: 80px;
+	height: 80px;
+	position: absolute;
+}
+#centro
+{
+    border: 2px solid black;
+	background-color: #aa6b18;
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	-ms-border-radius: 50px;
+	-o-border-radius: 50px;
+	width: 100px;
+	height: 100px;
+	top:50%;
+	left:50%;
+	position: absolute;
+	margin-top: -50px;
+	margin-left: -50px;
+}
+#centroCh
+{
+	background-color: #925305;
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	-ms-border-radius: 50px;
+	-o-border-radius: 50px;
+	width: 50px;
+	height: 50px;
+	top:58%;
+	left:58%;
+	position: absolute;
+	margin-top: -50px;
+	margin-left: -50px;
+}
+#tallo
+{
+    border: 2px solid black;
+	width: 15px;
+	height: 220px;
+	background-color: #006c67;
+	margin-top: -100px;
+	margin-left: 145px;
+}
+#hoja
+{
+    border: 2px solid black;
+	background-color: #006c67;
+	border-radius: 15px 0px 15px 0px;
+	width: 30px;
+	height: 30px;
+	margin-left: 160px;
+	margin-top: -150px;
+	position: absolute;
+}
+
+#flor
+{
+	width: 300px;
+	height: 300px;
+	background-color: transparent;
+	position: relative;
+}
+#p1
+{   
+    
+    border-radius: 0px 40px 0px 40px;
+	top:70px;
+	left:40px;
+}
+#p2
+{
+    border-radius: 0px 40px 0px 40px;
+	-webkit-transform:rotate(45deg);
+	-moz-transform:rotate(45deg);
+	-ms-transform:rotate(45deg);
+	-o-transform:rotate(45deg);
+	top:40px;
+	left:110px;
+    transform:rotate(45deg);
+
+    
+}
+#p3
+{
+    border-radius: 40px 0px 40px 0px;
+	top:70px;
+	left:180px;
+}
+#p4
+{
+    border-radius: 40px 0px 40px 0px;
+	top:145px;
+	left:44px;
+}
+#p5
+{
+    border-radius: 0px 40px 0px 40px;
+	-webkit-transform:rotate(45deg);
+	-moz-transform:rotate(45deg);
+	-ms-transform:rotate(45deg);
+	-o-transform:rotate(45deg);
+	top:180px;
+	left:114px;
+}
+#p6
+{
+    border-radius: 0px 40px 0px 40px;
+	top:140px;
+	left:180px;
+}
+#figura{
+	position: relative;
+	background-color: transparent;
+	top:0px ;
+	left: 0px;
+	width: 300px;
+	margin: auto;
+}
+#cesped{
+	position: absolute;
+	width: 394px;
+	position: absolute;
+	bottom: 0px;
+}
+.manga{
+	background: #80ed99;
+	transform:rotate(45deg);
+	-webkit-transform:rotate(45deg);
+	-moz-transform:rotate(45deg);
+	-ms-transform:rotate(45deg);
+	-o-transform:rotate(45deg);
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+}
+.fondo_manga{
+  background: #80ed99;
+  height: 50px;
+  left: -10px;
+  position: absolute;
+  top: 26px;
+  width: 394px;
+}
+
+#postit{
+  position:fixed;
+  background:#e9ff70;
+  width:200px;
+  height:230px;
+  margin:20px;
+  right:10px;
+  padding:20px;
+}

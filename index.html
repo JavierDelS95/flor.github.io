@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./items/animate.min.css">
+    <link rel="stylesheet" href="./items/flor.css">
+    <link rel="icon" href="./items/girassol.png" type="image/x-icon">
+    <title>Flor Amarilla</title>
+</head>
+<body>
+
+<!-- Código de Natalia Ortega -->
+<!--<input type="button" value="animar" id="boton">-->
+<audio id="miAudio" controls>
+    <source src="./items/Floricienta-Flores_Amarillas.mp3" type="audio/mpeg">
+    Tu navegador no admite el elemento de audio.
+</audio>
+<div id="mensaje" class="hidden">
+    <span id="texto_mensaje"></span>
+  </div>
+  <div id="intro">
+    <h1>&hearts; ¡Hola Ruth! &hearts;</h1>
+    <p>Feliz 21 de Septiembre, el día de hoy entra la primavera en el hemisferio sur del planeta. Y yo quiero darte una flor amarilla virtual, espero te guste, lo hice con mucho cariño para ti :).</p>
+    <input type="button" value="Ver" id="botonJugar" />
+  </div>
+  <div id="juego" class="hidden">
+    <div id="postit">
+      <h2>Nota:</h2>
+      <p>
+      Puedes quitar los petalos dandoles click.
+      </p>
+      <p>
+        Y "jugar a me quiere, no me quiere"
+      </p>
+       <p style="text-align: right;">
+        Pd: ¡Te quiero!
+       </p>
+       <p>Atte. Javi</p>
+    </div>
+    <div id="figura">
+      <div id="flor">
+        <div id="p1" class="petalo animated fadeIn"></div>
+        <div id="p2" class="petalo animated fadeIn"></div>
+        <div id="p3" class="petalo animated fadeIn"></div>
+        <div id="p4" class="petalo animated fadeIn"></div>
+        <div id="p5" class="petalo animated fadeIn"></div>
+        <div id="p6" class="petalo animated fadeIn"></div>
+        <div id="centro" class="animated pulse infinite"></div>
+        <div id="centroCh" class="animated pulse infinite"></div>
+      </div>
+      <div id="cesped">
+        <div class="manga"></div>
+        <div class="manga"></div>
+        <div class="manga"></div>
+        <div class="manga"></div>
+        <div class="manga"></div>
+        <div class="manga"></div>
+        <div class="manga"></div>
+        <div class="fondo_manga"></div>
+      </div>
+      
+      <div id="tallo"></div>
+      <div id="hoja"></div>
+    </div>
+    <div id="restar" style="padding-top: 60px;">
+        <input type="button" value="Volver a Jugar" id="botonVolverAJugar" />
+      </div>
+  </div>
+  
+
+<script>
+window.onload = init;
+var petalos;
+var boton_jugar;
+var boton_reiniciar_juego;
+var valores;
+
+function init(){
+	petalos = document.getElementsByClassName("petalo");
+	asignarEvento();
+  boton_jugar = document.getElementById("botonJugar");
+  boton_jugar.addEventListener("click",abrirJuego);
+  boton_reiniciar_juego = document.getElementById("botonVolverAJugar");
+  boton_reiniciar_juego.addEventListener("click",reiniciarJuego);
+  boton_reiniciar_juego.style.display = "none";
+  
+}
+function asignarValores(){
+
+  var moneda = false;
+  valores = [];
+  for(var i=0;i<petalos.length;i++)
+	{
+    valores[i] = moneda;
+    moneda = !moneda;
+  }
+}
+function abrirJuego(){
+    audio = document.getElementById("miAudio");
+  audio.play();
+  var ventana_actual = document.getElementById("intro");
+  var ventana_juego = document.getElementById("juego");
+  ventana_actual.className = "hidden";
+  ventana_juego.className = "animated fadeIn";
+  asignarValores();
+}
+function asignarEvento(){
+	for(var i=0;i<petalos.length;i++)
+	{
+		petalos[i].addEventListener("click",animar);
+	}
+}
+function colorAleatorio(){
+  var r = Math.round(Math.random()*255);
+  var g = Math.round(Math.random()*255);
+  var b = Math.round(Math.random()*255);
+  return "rgb("+r+","+g+","+b+")";
+}
+function animar(event){
+  var id_petalo = event.target.id;
+  var petalo = document.getElementById(""+id_petalo);
+  //petalo.style.backgroundColor = colorAleatorio(); 
+  petalo.className = "petalo animated fadeOutDown";
+  validarJugada(id_petalo);
+}
+
+function validarJugada(petalo){
+
+  var valor = valores[0];
+  valores.shift();
+  var indice = parseInt(petalo.substr(1));
+  var str;
+
+  if(valor)
+  {
+    str = "Me quiere";
+  }
+  else
+  {
+    str = "No me quiere";    
+  }
+  //alert(mensaje);
+  texto_mensaje.innerHTML = str;
+  mensaje.className = "mostrar animated fadeIn";
+  setTimeout(()=>{
+    mensaje.className = "hidden";
+  },1000);
+
+  if(valores.length>0){
+    boton_reiniciar_juego.style.display = "none";
+  }else{
+    boton_reiniciar_juego.style.display = "";
+  }
+
+}
+
+function reiniciarJuego(){
+    boton_reiniciar_juego.style.display = "none";
+    for (let index = 1; index < 7; index++) {
+        var petalo = document.getElementById("p"+index);
+        petalo.className = "petalo animated fadeIn";
+    }
+    
+    abrirJuego();
+}
+</script>
+</body>
+</html>
